@@ -6,6 +6,7 @@ import os
 from io import StringIO
 from models.rectangle import Rectangle
 
+"""Change order of attribute according to your own"""
 
 
 class TestRectangle(unittest.TestCase):
@@ -38,6 +39,7 @@ class TestRectangle(unittest.TestCase):
             rectangle1 = Rectangle(1, 2, 3, "sup'")
         self.assertEqual(str(err3.exception), "y must be an integer")
 
+
     def test_rectangle_value_error(self):
         with self.assertRaises(ValueError) as err:
             rectangle = Rectangle(-2, 1)
@@ -48,6 +50,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError) as err3:
             rectangle = Rectangle(0, 1)
         self.assertEqual(str(err3.exception), "width must be > 0")
+
 
     def test_rectangle_area(self):
         rectangle = Rectangle(3, 2)
@@ -189,3 +192,4 @@ class TestRectangle(unittest.TestCase):
             self.assertTrue(isinstance(loaded_rectangle, Rectangle))
             for key in expected_rectangle:
                 self.assertEqual(getattr(loaded_rectangle,key), expected_rectangle[key])
+

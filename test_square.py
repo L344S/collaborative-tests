@@ -14,6 +14,7 @@ class TestSquare(unittest.TestCase):
         square = Square(3, 1)
         self.assertEqual(square.x, 1)
 
+
     def test_square_init_with_pos(self):
         square = Square(3, 2, 1)
         self.assertEqual(square.x, 2)
@@ -27,6 +28,7 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError) as err:
             square = Square("hello", 2, 3)
         self.assertEqual(str(err.exception), "width must be an integer")
+
         with self.assertRaises(TypeError) as err:
             square = Square(1, "2", 3)
         self.assertEqual(str(err.exception), "x must be an integer")
