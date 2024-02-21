@@ -6,7 +6,6 @@ import os
 from io import StringIO
 from models.rectangle import Rectangle
 
-"""Change order of attribute according to your own"""
 
 
 class TestRectangle(unittest.TestCase):
@@ -55,12 +54,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.area(), 6)
 
     def setUp(self):
-        """function to redirect stdout to capture print"""
+        """Redirect stdout to capture print"""
         self.held, sys.stdout = sys.stdout, StringIO()
+        """assign filename"""
         self.filename = "Rectangle.json"
 
     def tearDown(self):
-        """function to restore original stdout after test"""
+        """Restore original stdout after test"""
         sys.stdout = self.held
         """Remove the file after the test to clean up."""
         if os.path.exists(self.filename):
